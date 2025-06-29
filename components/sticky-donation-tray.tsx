@@ -68,11 +68,23 @@ export function StickyDonationTray() {
     }
   }, [visible])
 
-  // Handle confetti burst
-  function handleDonate(e: React.MouseEvent) {
+  // Handle confetti burst and donations
+  function handleStripe(e: React.MouseEvent) {
     const x = e.clientX, y = e.clientY
     launchConfetti(x, y)
     window.open("https://donate.stripe.com/3cI5kC7jm7mC8LKerv6EU00", "_blank", "noopener")
+  }
+
+  function handleCashApp(e: React.MouseEvent) {
+    const x = e.clientX, y = e.clientY
+    launchConfetti(x, y)
+    window.open("https://cash.app/$YourCashAppHandle", "_blank", "noopener")
+  }
+
+  function handleBuyMeACoffee(e: React.MouseEvent) {
+    const x = e.clientX, y = e.clientY
+    launchConfetti(x, y)
+    window.open("https://buymeacoffee.com/yourusername", "_blank", "noopener")
   }
 
   return (
@@ -90,8 +102,8 @@ export function StickyDonationTray() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: "2rem",
-        padding: "1.5rem 2rem",
+        gap: "1.5rem",
+        padding: "1.2rem 2rem",
         transition: "transform 0.5s cubic-bezier(.7,1.5,.5,1), opacity 0.5s",
         opacity: 0,
         transform: "translateY(120%)",
@@ -100,7 +112,7 @@ export function StickyDonationTray() {
       aria-label="Quick donation bar"
     >
       <button
-        onClick={handleDonate}
+        onClick={handleStripe}
         style={{
           background: "#000",
           border: "3px solid #00ff00",
@@ -108,24 +120,74 @@ export function StickyDonationTray() {
           fontWeight: 900,
           fontFamily: 'Courier New, monospace',
           borderRadius: 8,
-          padding: "1.2rem 3rem",
-          fontSize: "1.4rem",
+          padding: "1rem 2rem",
+          fontSize: "1.1rem",
           display: "flex",
           alignItems: "center",
-          gap: "1rem",
-          boxShadow: "0 0 20px #00ff0040",
+          gap: "0.8rem",
+          boxShadow: "0 0 15px #00ff0040",
           cursor: "pointer",
           textTransform: "uppercase",
           letterSpacing: "0.1em",
         }}
         aria-label="Donate via Stripe"
       >
-        <span style={{ fontSize: 32 }}>⚡</span>
-        <span>DONATE NOW</span>
+        <span style={{ fontSize: 24 }}>⚡</span>
+        <span>DONATE</span>
+      </button>
+
+      <button
+        onClick={handleCashApp}
+        style={{
+          background: "#000",
+          border: "3px solid #22c55e",
+          color: "#22c55e",
+          fontWeight: 900,
+          fontFamily: 'Courier New, monospace',
+          borderRadius: 8,
+          padding: "1rem 2rem",
+          fontSize: "1.1rem",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.8rem",
+          boxShadow: "0 0 15px #22c55e40",
+          cursor: "pointer",
+          textTransform: "uppercase",
+          letterSpacing: "0.1em",
+        }}
+        aria-label="Donate via CashApp"
+      >
+        <span style={{ fontSize: 24 }}>💸</span>
+        <span>CASHAPP</span>
+      </button>
+
+      <button
+        onClick={handleBuyMeACoffee}
+        style={{
+          background: "#000",
+          border: "3px solid #ff6600",
+          color: "#ff6600",
+          fontWeight: 900,
+          fontFamily: 'Courier New, monospace',
+          borderRadius: 8,
+          padding: "1rem 2rem",
+          fontSize: "1.1rem",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.8rem",
+          boxShadow: "0 0 15px #ff660040",
+          cursor: "pointer",
+          textTransform: "uppercase",
+          letterSpacing: "0.1em",
+        }}
+        aria-label="Buy me a coffee"
+      >
+        <span style={{ fontSize: 24 }}>☕</span>
+        <span>COFFEE</span>
       </button>
       
-      <span style={{ color: "#3b82f6", fontWeight: 700, fontFamily: 'monospace', fontSize: "1.2rem", marginLeft: 24 }}>
-        <span style={{ fontSize: "1.5rem", marginRight: 8 }}>👥</span>
+      <span style={{ color: "#3b82f6", fontWeight: 700, fontFamily: 'monospace', fontSize: "1.1rem", marginLeft: 16 }}>
+        <span style={{ fontSize: "1.3rem", marginRight: 6 }}>👥</span>
         {donors} donors today
       </span>
     </div>

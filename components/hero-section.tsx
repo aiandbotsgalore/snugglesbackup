@@ -19,8 +19,16 @@ export function HeroSection() {
     return () => clearInterval(glitchInterval)
   }, [])
 
-  const handleDonate = () => {
+  const handleStripe = () => {
     window.open("https://donate.stripe.com/3cI5kC7jm7mC8LKerv6EU00", "_blank")
+  }
+
+  const handleCashApp = () => {
+    window.open("https://cash.app/$YourCashAppHandle", "_blank")
+  }
+
+  const handleBuyMeACoffee = () => {
+    window.open("https://buymeacoffee.com/yourusername", "_blank")
   }
 
   return (
@@ -113,20 +121,51 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Single Donation Button */}
-          <div className="flex justify-center">
+          {/* Donation Buttons */}
+          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+            {/* Primary Stripe Button */}
             <button
-              onClick={handleDonate}
-              className="group relative bg-black border-4 border-green-400 text-green-400 hover:bg-green-400/20 px-16 py-12 text-3xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-400/50 rounded-lg"
+              onClick={handleStripe}
+              className="group relative bg-black border-4 border-green-400 text-green-400 hover:bg-green-400/20 px-12 py-10 text-2xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-400/50 rounded-lg min-w-[320px]"
             >
-              <div className="flex items-center gap-6">
-                <span className="text-4xl animate-pulse">⚡</span>
+              <div className="flex items-center gap-4">
+                <span className="text-3xl animate-pulse">⚡</span>
                 <div className="text-left">
-                  <div className="font-black text-2xl">DONATE NOW</div>
-                  <div className="text-lg opacity-80">Feed the Anomaly</div>
+                  <div className="font-black text-xl">DONATE NOW</div>
+                  <div className="text-sm opacity-80">Feed the Anomaly</div>
                 </div>
               </div>
               <div className="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+            </button>
+
+            {/* CashApp Button */}
+            <button
+              onClick={handleCashApp}
+              className="group relative bg-black border-4 border-green-500 text-green-500 hover:bg-green-500/20 px-12 py-10 text-2xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-500/50 rounded-lg min-w-[320px]"
+            >
+              <div className="flex items-center gap-4">
+                <span className="text-3xl">💸</span>
+                <div className="text-left">
+                  <div className="font-black text-xl">CASHAPP</div>
+                  <div className="text-sm opacity-80">Quick Transfer</div>
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+            </button>
+
+            {/* Buy Me a Coffee Button */}
+            <button
+              onClick={handleBuyMeACoffee}
+              className="group relative bg-black border-4 border-orange-400 text-orange-400 hover:bg-orange-400/20 px-12 py-10 text-2xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-400/50 rounded-lg min-w-[320px]"
+            >
+              <div className="flex items-center gap-4">
+                <span className="text-3xl">☕</span>
+                <div className="text-left">
+                  <div className="font-black text-xl">BUY COFFEE</div>
+                  <div className="text-sm opacity-80">Fuel the Oracle</div>
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
             </button>
           </div>
 
