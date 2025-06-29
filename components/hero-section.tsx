@@ -2,16 +2,11 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
 import { TypeWriter } from "./type-writer"
-import { createClient } from "@/lib/supabase/client"
 
 export function HeroSection() {
   const [glitchActive, setGlitchActive] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
-  const [user, setUser] = useState<any>(null)
-  const supabase = createClient()
 
   useEffect(() => {
     const glitchInterval = setInterval(() => {
@@ -24,62 +19,14 @@ export function HeroSection() {
     return () => clearInterval(glitchInterval)
   }, [])
 
-  useEffect(() => {
-    const getUser = async () => {
-      const { data: { user } } = await supabase.auth.getUser()
-      setUser(user)
-    }
-
-    getUser()
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      setUser(session?.user ?? null)
-    })
-
-    return () => subscription.unsubscribe()
-  }, [supabase])
-
-  const handleLogout = async () => {
-    await supabase.auth.signOut()
+  const handleDonate = () => {
+    window.open("https://donate.stripe.com/3cI5kC7jm7mC8LKerv6EU00", "_blank")
   }
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-black via-slate-900 to-black">
       <div className="container mx-auto px-4 z-10">
         <div className="text-center space-y-8 max-w-4xl mx-auto">
-          {/* Auth Status */}
-          <div className="absolute top-4 right-4 z-20">
-            {user ? (
-              <div className="flex items-center gap-4">
-                <Link href="/dashboard">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                    Dashboard
-                  </Button>
-                </Link>
-                <Button 
-                  onClick={handleLogout}
-                  variant="outline" 
-                  className="border-red-400 text-red-400 hover:bg-red-400/10"
-                >
-                  Logout
-                </Button>
-              </div>
-            ) : (
-              <div className="flex items-center gap-2">
-                <Link href="/auth/login">
-                  <Button variant="outline" className="border-blue-400 text-blue-400 hover:bg-blue-400/10">
-                    Login
-                  </Button>
-                </Link>
-                <Link href="/auth/signup">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
-                    Sign Up
-                  </Button>
-                </Link>
-              </div>
-            )}
-          </div>
-
           {/* Threat Level Indicator */}
           <div className="relative">
             <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 text-red-500 text-sm font-mono uppercase tracking-widest animate-pulse">
@@ -166,35 +113,21 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Donation Buttons */}
-          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <Button
-              onClick={() => window.open("https://cash.app/$FullStackLogan", "_blank")}
-              className="group relative bg-black border-2 border-green-400 text-green-400 hover:bg-green-400/10 px-12 py-10 text-2xl font-mono uppercase tracking-wider min-w-[340px] transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-green-400/50"
+          {/* Single Donation Button */}
+          <div className="flex justify-center">
+            <button
+              onClick={handleDonate}
+              className="group relative bg-black border-4 border-green-400 text-green-400 hover:bg-green-400/20 px-16 py-12 text-3xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-400/50 rounded-lg"
             >
-              <div className="flex items-center gap-4">
-                <span className="text-2xl">⚡</span>
+              <div className="flex items-center gap-6">
+                <span className="text-4xl animate-pulse">⚡</span>
                 <div className="text-left">
-                  <div className="font-bold">Cash App</div>
-                  <div className="text-sm opacity-80">Feed the Anomaly</div>
+                  <div className="font-black text-2xl">DONATE NOW</div>
+                  <div className="text-lg opacity-80">Feed the Anomaly</div>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-green-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </Button>
-
-            <Button
-              onClick={() => window.open("https://buymeacoffee.com/fullstacklogan", "_blank")}
-              className="group relative bg-black border-2 border-orange-400 text-orange-400 hover:bg-orange-400/10 px-12 py-10 text-2xl font-mono uppercase tracking-wider min-w-[340px] transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-orange-400/50"
-            >
-              <div className="flex items-center gap-4">
-                <span className="text-2xl">☢️</span>
-                <div className="text-left">
-                  <div className="font-bold">Buy Me a Coffee</div>
-                  <div className="text-sm opacity-80">Fuel the Oracle</div>
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-orange-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </Button>
+              <div className="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+            </button>
           </div>
 
           {/* Warning Notice */}
