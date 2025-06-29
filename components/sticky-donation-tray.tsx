@@ -78,13 +78,13 @@ export function StickyDonationTray() {
   function handleCashApp(e: React.MouseEvent) {
     const x = e.clientX, y = e.clientY
     launchConfetti(x, y)
-    window.open("https://cash.app/$YourCashAppHandle", "_blank", "noopener")
+    window.open("https://cash.app/$fullstacklogan", "_blank", "noopener")
   }
 
   function handleBuyMeACoffee(e: React.MouseEvent) {
     const x = e.clientX, y = e.clientY
     launchConfetti(x, y)
-    window.open("https://buymeacoffee.com/yourusername", "_blank", "noopener")
+    window.open("https://buymeacoffee.com/fullstacklogan", "_blank", "noopener")
   }
 
   return (

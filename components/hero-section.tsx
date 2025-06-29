@@ -24,11 +24,11 @@ export function HeroSection() {
   }
 
   const handleCashApp = () => {
-    window.open("https://cash.app/$YourCashAppHandle", "_blank")
+    window.open("https://cash.app/$fullstacklogan", "_blank")
   }
 
   const handleBuyMeACoffee = () => {
-    window.open("https://buymeacoffee.com/yourusername", "_blank")
+    window.open("https://buymeacoffee.com/fullstacklogan", "_blank")
   }
 
   return (
