@@ -2,12 +2,16 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { TypeWriter } from "./type-writer"
+import { createClient } from "@/lib/supabase/client"
 
 export function HeroSection() {
   const [glitchActive, setGlitchActive] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
+  const [user, setUser] = useState<any>(null)
+  const supabase = createClient()
 
   useEffect(() => {
     const glitchInterval = setInterval(() => {
@@ -20,10 +24,62 @@ export function HeroSection() {
     return () => clearInterval(glitchInterval)
   }, [])
 
+  useEffect(() => {
+    const getUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser()
+      setUser(user)
+    }
+
+    getUser()
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setUser(session?.user ?? null)
+    })
+
+    return () => subscription.unsubscribe()
+  }, [supabase])
+
+  const handleLogout = async () => {
+    await supabase.auth.signOut()
+  }
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-black via-slate-900 to-black">
       <div className="container mx-auto px-4 z-10">
         <div className="text-center space-y-8 max-w-4xl mx-auto">
+          {/* Auth Status */}
+          <div className="absolute top-4 right-4 z-20">
+            {user ? (
+              <div className="flex items-center gap-4">
+                <Link href="/dashboard">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                    Dashboard
+                  </Button>
+                </Link>
+                <Button 
+                  onClick={handleLogout}
+                  variant="outline" 
+                  className="border-red-400 text-red-400 hover:bg-red-400/10"
+                >
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <div className="flex items-center gap-2">
+                <Link href="/auth/login">
+                  <Button variant="outline" className="border-blue-400 text-blue-400 hover:bg-blue-400/10">
+                    Login
+                  </Button>
+                </Link>
+                <Link href="/auth/signup">
+                  <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+                    Sign Up
+                  </Button>
+                </Link>
+              </div>
+            )}
+          </div>
+
           {/* Threat Level Indicator */}
           <div className="relative">
             <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 text-red-500 text-sm font-mono uppercase tracking-widest animate-pulse">
@@ -35,25 +91,24 @@ export function HeroSection() {
               <div className="absolute inset-0 bg-blue-500/20 rounded-lg blur-xl animate-pulse" />
               <div className="relative">
                 <div className="relative w-[600px] h-[600px] mx-auto">
-  <Image
-    src="/snuggles.jpg"
-    alt="Snuggles - The Cognitive Anomaly"
-    fill
-    className={`rounded-lg border-2 border-blue-400 transition-all duration-300 object-cover object-center ${
-      imageLoaded ? "opacity-100" : "opacity-0"
-    } ${
-      glitchActive ? "filter hue-rotate-180 brightness-150" : "brightness-110"
-    } group-hover:scale-105 group-hover:rotate-2 group-hover:brightness-125`}
-    style={{
-      boxShadow: "0 0 60px rgba(59, 130, 246, 0.5), 0 0 120px rgba(59, 130, 246, 0.3)",
-      animation: "pulse-glow 2s ease-in-out infinite",
-      zIndex: 10,
-    }}
-    onLoad={() => setImageLoaded(true)}
-    priority
-  />
-
-</div>
+                  <Image
+                    src="/snuggles.jpg"
+                    alt="Snuggles - The Cognitive Anomaly"
+                    fill
+                    className={`rounded-lg border-2 border-blue-400 transition-all duration-300 object-cover object-center ${
+                      imageLoaded ? "opacity-100" : "opacity-0"
+                    } ${
+                      glitchActive ? "filter hue-rotate-180 brightness-150" : "brightness-110"
+                    } group-hover:scale-105 group-hover:rotate-2 group-hover:brightness-125`}
+                    style={{
+                      boxShadow: "0 0 60px rgba(59, 130, 246, 0.5), 0 0 120px rgba(59, 130, 246, 0.3)",
+                      animation: "pulse-glow 2s ease-in-out infinite",
+                      zIndex: 10,
+                    }}
+                    onLoad={() => setImageLoaded(true)}
+                    priority
+                  />
+                </div>
               </div>
             </div>
           </div>
