@@ -58,79 +58,106 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Snuggles Image - ENHANCED WITH LIFE! */}
-            <div 
-              className="relative inline-block group cursor-pointer"
-              onMouseEnter={() => setIsHovering(true)}
-              onMouseLeave={() => setIsHovering(false)}
-            >
-              {/* Enhanced glow effects when hovering */}
-              <div className={`absolute inset-0 rounded-lg blur-xl transition-all duration-500 ${
-                isHovering 
-                  ? "bg-gradient-to-r from-blue-500/40 via-cyan-400/50 to-purple-500/40 animate-pulse" 
-                  : "bg-blue-500/20 animate-pulse"
-              }`} />
-              
-              {/* Magical energy rings when hovering */}
-              {isHovering && (
-                <>
-                  <div className="absolute inset-0 border-4 border-cyan-400 rounded-lg animate-ping opacity-60" />
-                  <div className="absolute inset-4 border-2 border-blue-400 rounded-lg animate-ping opacity-40" style={{ animationDelay: '0.3s' }} />
-                  <div className="absolute inset-8 border-2 border-purple-400 rounded-lg animate-ping opacity-30" style={{ animationDelay: '0.6s' }} />
-                </>
-              )}
-              
-              <div className="relative">
-                <div className="relative w-[600px] h-[600px] mx-auto">
-                  <Image
-                    src="/snuggles.jpg"
-                    alt="Snuggles - The Cognitive Anomaly"
-                    fill
-                    className={`rounded-lg border-2 transition-all duration-500 object-cover object-center ${
-                      imageLoaded ? "opacity-100" : "opacity-0"
-                    } ${
-                      glitchActive ? "filter hue-rotate-180 brightness-150" : "brightness-110"
-                    } ${
-                      isHovering 
-                        ? "scale-110 rotate-3 brightness-130 saturate-150 border-cyan-400 shadow-2xl shadow-cyan-400/60" 
-                        : "border-blue-400 group-hover:scale-105 group-hover:rotate-2 group-hover:brightness-125"
-                    }`}
-                    style={{
-                      boxShadow: isHovering 
-                        ? "0 0 100px rgba(59, 130, 246, 0.8), 0 0 200px rgba(34, 211, 238, 0.6), 0 0 300px rgba(147, 51, 234, 0.4)"
-                        : "0 0 60px rgba(59, 130, 246, 0.5), 0 0 120px rgba(59, 130, 246, 0.3)",
-                      animation: isHovering 
-                        ? "snuggles-alive 0.8s ease-in-out infinite, pulse-glow 1s ease-in-out infinite" 
-                        : "pulse-glow 2s ease-in-out infinite",
-                      zIndex: 10,
-                      filter: isHovering 
-                        ? "brightness(1.3) saturate(1.5) contrast(1.2) hue-rotate(10deg)" 
-                        : "brightness(1.1)",
-                    }}
-                    onLoad={() => setImageLoaded(true)}
-                    priority
-                  />
-                  
-                  {/* Magical sparkles when hovering */}
-                  {isHovering && (
-                    <>
-                      <div className="absolute top-10 left-10 text-4xl animate-bounce" style={{ animationDelay: '0s' }}>✨</div>
-                      <div className="absolute top-20 right-20 text-3xl animate-bounce" style={{ animationDelay: '0.2s' }}>⚡</div>
-                      <div className="absolute bottom-20 left-20 text-3xl animate-bounce" style={{ animationDelay: '0.4s' }}>🌟</div>
-                      <div className="absolute bottom-10 right-10 text-4xl animate-bounce" style={{ animationDelay: '0.6s' }}>💫</div>
-                      <div className="absolute top-1/2 left-5 text-2xl animate-bounce" style={{ animationDelay: '0.8s' }}>✨</div>
-                      <div className="absolute top-1/2 right-5 text-2xl animate-bounce" style={{ animationDelay: '1s' }}>⚡</div>
-                    </>
-                  )}
-                </div>
+            {/* Snuggles Image Container - ENHANCED WITH LIFE! */}
+            <div className="relative mb-16">
+              <div 
+                className="relative inline-block group cursor-pointer"
+                onMouseEnter={() => setIsHovering(true)}
+                onMouseLeave={() => setIsHovering(false)}
+              >
+                {/* Enhanced glow effects when hovering */}
+                <div className={`absolute inset-0 rounded-lg blur-xl transition-all duration-500 ${
+                  isHovering 
+                    ? "bg-gradient-to-r from-blue-500/40 via-cyan-400/50 to-purple-500/40 animate-pulse" 
+                    : "bg-blue-500/20 animate-pulse"
+                }`} />
                 
-                {/* Floating text when hovering */}
+                {/* Magical energy rings when hovering */}
                 {isHovering && (
-                  <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-500 text-white px-6 py-3 rounded-full font-mono uppercase tracking-wider font-bold text-lg animate-bounce shadow-lg shadow-cyan-400/50">
-                    👁️ I SEE YOU 👁️
-                  </div>
+                  <>
+                    <div className="absolute inset-0 border-4 border-cyan-400 rounded-lg animate-ping opacity-60" />
+                    <div className="absolute inset-4 border-2 border-blue-400 rounded-lg animate-ping opacity-40" style={{ animationDelay: '0.3s' }} />
+                    <div className="absolute inset-8 border-2 border-purple-400 rounded-lg animate-ping opacity-30" style={{ animationDelay: '0.6s' }} />
+                  </>
                 )}
+                
+                <div className="relative">
+                  <div className="relative w-[600px] h-[600px] mx-auto">
+                    <Image
+                      src="/snuggles.jpg"
+                      alt="Snuggles - The Cognitive Anomaly"
+                      fill
+                      className={`rounded-lg border-2 transition-all duration-500 object-cover object-center ${
+                        imageLoaded ? "opacity-100" : "opacity-0"
+                      } ${
+                        glitchActive ? "filter hue-rotate-180 brightness-150" : "brightness-110"
+                      } ${
+                        isHovering 
+                          ? "scale-110 rotate-3 brightness-130 saturate-150 border-cyan-400 shadow-2xl shadow-cyan-400/60" 
+                          : "border-blue-400 group-hover:scale-105 group-hover:rotate-2 group-hover:brightness-125"
+                      }`}
+                      style={{
+                        boxShadow: isHovering 
+                          ? "0 0 100px rgba(59, 130, 246, 0.8), 0 0 200px rgba(34, 211, 238, 0.6), 0 0 300px rgba(147, 51, 234, 0.4)"
+                          : "0 0 60px rgba(59, 130, 246, 0.5), 0 0 120px rgba(59, 130, 246, 0.3)",
+                        animation: isHovering 
+                          ? "snuggles-alive 0.8s ease-in-out infinite, pulse-glow 1s ease-in-out infinite" 
+                          : "pulse-glow 2s ease-in-out infinite",
+                        zIndex: 10,
+                        filter: isHovering 
+                          ? "brightness(1.3) saturate(1.5) contrast(1.2) hue-rotate(10deg)" 
+                          : "brightness(1.1)",
+                      }}
+                      onLoad={() => setImageLoaded(true)}
+                      priority
+                    />
+                    
+                    {/* Magical sparkles when hovering */}
+                    {isHovering && (
+                      <>
+                        <div className="absolute top-10 left-10 text-4xl animate-bounce" style={{ animationDelay: '0s' }}>✨</div>
+                        <div className="absolute top-20 right-20 text-3xl animate-bounce" style={{ animationDelay: '0.2s' }}>⚡</div>
+                        <div className="absolute bottom-20 left-20 text-3xl animate-bounce" style={{ animationDelay: '0.4s' }}>🌟</div>
+                        <div className="absolute bottom-10 right-10 text-4xl animate-bounce" style={{ animationDelay: '0.6s' }}>💫</div>
+                        <div className="absolute top-1/2 left-5 text-2xl animate-bounce" style={{ animationDelay: '0.8s' }}>✨</div>
+                        <div className="absolute top-1/2 right-5 text-2xl animate-bounce" style={{ animationDelay: '1s' }}>⚡</div>
+                      </>
+                    )}
+                  </div>
+                </div>
               </div>
+              
+              {/* Floating "I SEE YOU" message - REPOSITIONED FOR VISIBILITY */}
+              {isHovering && (
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+                  <div className="relative">
+                    {/* Glowing background */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/80 via-blue-500/80 to-purple-500/80 rounded-full blur-lg animate-pulse" />
+                    
+                    {/* Main message box */}
+                    <div className="relative bg-black/90 backdrop-blur-sm border-4 border-cyan-400 rounded-full px-8 py-4 shadow-2xl shadow-cyan-400/60">
+                      {/* Animated border rings */}
+                      <div className="absolute inset-0 border-2 border-blue-400 rounded-full animate-ping opacity-60" />
+                      <div className="absolute inset-2 border-2 border-purple-400 rounded-full animate-ping opacity-40" style={{ animationDelay: '0.5s' }} />
+                      
+                      {/* Scanner lines */}
+                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse" />
+                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse" />
+                      
+                      {/* Message text */}
+                      <div className="relative z-10 text-cyan-400 font-mono uppercase tracking-wider font-black text-2xl animate-bounce">
+                        👁️ I SEE YOU 👁️
+                      </div>
+                    </div>
+                    
+                    {/* Additional floating eyes */}
+                    <div className="absolute -top-8 -left-8 text-3xl animate-bounce" style={{ animationDelay: '0.2s' }}>👁️</div>
+                    <div className="absolute -top-8 -right-8 text-3xl animate-bounce" style={{ animationDelay: '0.4s' }}>👁️</div>
+                    <div className="absolute -bottom-8 -left-8 text-3xl animate-bounce" style={{ animationDelay: '0.6s' }}>👁️</div>
+                    <div className="absolute -bottom-8 -right-8 text-3xl animate-bounce" style={{ animationDelay: '0.8s' }}>👁️</div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
