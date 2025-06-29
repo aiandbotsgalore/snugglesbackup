@@ -35,10 +35,26 @@ export function HeroSection() {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-black via-slate-900 to-black">
       <div className="container mx-auto px-4 z-10">
         <div className="text-center space-y-8 max-w-4xl mx-auto">
-          {/* Threat Level Indicator */}
+          {/* Enhanced Threat Level Indicator */}
           <div className="relative">
-            <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 text-red-500 text-sm font-mono uppercase tracking-widest animate-pulse">
-              <TypeWriter text="⚠ COGNITIVE THREAT DETECTED ⚠" speed={30} className="text-red-400" />
+            <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
+              {/* Digital Display Container */}
+              <div className="relative bg-black/80 backdrop-blur-sm border-2 border-red-500 rounded-lg px-6 py-3 shadow-lg shadow-red-500/50">
+                {/* Animated border effect */}
+                <div className="absolute inset-0 border-2 border-red-400 rounded-lg animate-pulse opacity-60" />
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-transparent to-red-500/20 animate-pulse" />
+                
+                {/* Scanner line */}
+                <div className="absolute top-0 left-0 w-full h-0.5 bg-red-400 animate-pulse" />
+                
+                <div className="relative z-10">
+                  <TypeWriter 
+                    text="⚠ COGNITIVE THREAT DETECTED ⚠" 
+                    speed={30} 
+                    className="text-red-400 font-mono uppercase tracking-widest text-sm font-bold" 
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Snuggles Image */}
@@ -169,9 +185,21 @@ export function HeroSection() {
             </button>
           </div>
 
-          {/* Warning Notice */}
-          <div className="text-red-400 font-mono uppercase tracking-widest animate-pulse text-lg">
-            ⚠ WARNING: BELIEF SYSTEMS AT RISK ⚠
+          {/* Enhanced Warning Notice */}
+          <div className="relative">
+            <div className="bg-black/80 backdrop-blur-sm border-2 border-red-500 rounded-lg px-8 py-4 shadow-lg shadow-red-500/50 inline-block">
+              {/* Animated border effect */}
+              <div className="absolute inset-0 border-2 border-red-400 rounded-lg animate-pulse opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-transparent to-red-500/20 animate-pulse" />
+              
+              {/* Scanner lines */}
+              <div className="absolute top-0 left-0 w-full h-0.5 bg-red-400 animate-pulse" />
+              <div className="absolute bottom-0 left-0 w-full h-0.5 bg-red-400 animate-pulse" />
+              
+              <div className="relative z-10 text-red-400 font-mono uppercase tracking-widest font-bold text-lg">
+                ⚠ WARNING: BELIEF SYSTEMS AT RISK ⚠
+              </div>
+            </div>
           </div>
         </div>
       </div>
