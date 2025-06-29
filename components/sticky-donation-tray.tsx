@@ -133,7 +133,7 @@ export function StickyDonationTray() {
         aria-label="Donate via Stripe"
       >
         <span style={{ fontSize: 24 }}>⚡</span>
-        <span>DONATE</span>
+        <span>STRIPE DONATE</span>
       </button>
 
       <button

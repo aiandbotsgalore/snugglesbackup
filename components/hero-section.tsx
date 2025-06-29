@@ -131,7 +131,7 @@ export function HeroSection() {
               <div className="flex items-center gap-4">
                 <span className="text-3xl animate-pulse">⚡</span>
                 <div className="text-left">
-                  <div className="font-black text-xl">DONATE NOW</div>
+                  <div className="font-black text-xl">STRIPE DONATE</div>
                   <div className="text-sm opacity-80">Feed the Anomaly</div>
                 </div>
               </div>
