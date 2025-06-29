@@ -16,23 +16,23 @@ function launchConfetti(x: number, y: number) {
   confettiRoot.style.zIndex = "9999"
   document.body.appendChild(confettiRoot)
 
-  for (let i = 0; i < 22; i++) {
+  for (let i = 0; i < 30; i++) {
     const el = document.createElement("span")
     el.textContent = emojis[Math.floor(Math.random() * emojis.length)]
     el.style.position = "absolute"
-    el.style.left = `${x + (Math.random() - 0.5) * 40}px`
-    el.style.top = `${y + (Math.random() - 0.5) * 20}px`
-    el.style.fontSize = `${Math.random() * 16 + 24}px`
+    el.style.left = `${x + (Math.random() - 0.5) * 60}px`
+    el.style.top = `${y + (Math.random() - 0.5) * 40}px`
+    el.style.fontSize = `${Math.random() * 20 + 30}px`
     el.style.color = colors[Math.floor(Math.random() * colors.length)]
-    el.style.transition = "transform 1s cubic-bezier(.4,2,.3,1), opacity 1s"
+    el.style.transition = "transform 1.5s cubic-bezier(.4,2,.3,1), opacity 1.5s"
     el.style.opacity = "1"
     confettiRoot.appendChild(el)
     setTimeout(() => {
-      el.style.transform = `translate(${(Math.random() - 0.5) * 200}px, ${-Math.random() * 200 - 100}px) rotate(${Math.random() * 360}deg)`
+      el.style.transform = `translate(${(Math.random() - 0.5) * 300}px, ${-Math.random() * 300 - 150}px) rotate(${Math.random() * 720}deg)`
       el.style.opacity = "0"
-    }, 20)
+    }, 50)
   }
-  setTimeout(() => confettiRoot.remove(), 1200)
+  setTimeout(() => confettiRoot.remove(), 1800)
 }
 
 export function FloatingDonationButton() {
@@ -57,74 +57,97 @@ export function FloatingDonationButton() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-8 right-8 z-50">
       {/* Expanded Menu */}
       {isExpanded && (
-        <div className="absolute bottom-20 right-0 flex flex-col gap-3 animate-in slide-in-from-bottom-2 duration-300">
+        <div className="absolute bottom-32 right-0 flex flex-col gap-4 animate-in slide-in-from-bottom-4 duration-500">
           {/* Stripe Button */}
           <button
             onClick={handleStripe}
-            className="group bg-black border-3 border-green-400 text-green-400 hover:bg-green-400/20 px-4 py-3 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-green-400/50 rounded-lg flex items-center gap-3 min-w-[200px]"
+            className="group bg-black border-4 border-green-400 text-green-400 hover:bg-green-400/30 px-8 py-6 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-400/60 rounded-xl flex items-center gap-4 min-w-[280px] text-xl font-black"
           >
-            <span className="text-xl animate-pulse">⚡</span>
-            <span className="font-black">STRIPE DONATE</span>
+            <span className="text-3xl animate-pulse">⚡</span>
+            <span>STRIPE DONATE</span>
+            <div className="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
           </button>
 
           {/* CashApp Button */}
           <button
             onClick={handleCashApp}
-            className="group bg-black border-3 border-green-500 text-green-500 hover:bg-green-500/20 px-4 py-3 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-green-500/50 rounded-lg flex items-center gap-3 min-w-[200px]"
+            className="group bg-black border-4 border-green-500 text-green-500 hover:bg-green-500/30 px-8 py-6 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-500/60 rounded-xl flex items-center gap-4 min-w-[280px] text-xl font-black"
           >
-            <span className="text-xl">💸</span>
-            <span className="font-black">CASHAPP</span>
+            <span className="text-3xl animate-bounce">💸</span>
+            <span>CASHAPP</span>
+            <div className="absolute inset-0 bg-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
           </button>
 
           {/* Buy Me a Coffee Button */}
           <button
             onClick={handleBuyMeACoffee}
-            className="group bg-black border-3 border-orange-400 text-orange-400 hover:bg-orange-400/20 px-4 py-3 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-orange-400/50 rounded-lg flex items-center gap-3 min-w-[200px]"
+            className="group bg-black border-4 border-orange-400 text-orange-400 hover:bg-orange-400/30 px-8 py-6 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-400/60 rounded-xl flex items-center gap-4 min-w-[280px] text-xl font-black"
           >
-            <span className="text-xl">☕</span>
-            <span className="font-black">BUY COFFEE</span>
+            <span className="text-3xl animate-pulse">☕</span>
+            <span>BUY COFFEE</span>
+            <div className="absolute inset-0 bg-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
           </button>
         </div>
       )}
 
-      {/* Main Floating Button */}
+      {/* MASSIVE Main Floating Button */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`group relative bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 text-white p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 ${
-          isExpanded ? 'rotate-45' : 'hover:rotate-12'
+        className={`group relative bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:from-green-500 hover:via-blue-600 hover:to-purple-700 text-white rounded-full shadow-2xl transition-all duration-500 hover:scale-125 ${
+          isExpanded ? 'rotate-45' : 'hover:rotate-12 animate-bounce'
         }`}
         style={{
-          boxShadow: "0 8px 32px rgba(34, 197, 94, 0.4), 0 0 0 1px rgba(34, 197, 94, 0.2)",
-          animation: "pulse-glow 2s ease-in-out infinite",
+          width: '120px',
+          height: '120px',
+          boxShadow: "0 20px 60px rgba(34, 197, 94, 0.6), 0 0 0 4px rgba(34, 197, 94, 0.3), 0 0 100px rgba(59, 130, 246, 0.4)",
+          animation: "mega-pulse-glow 1.5s ease-in-out infinite, mega-bounce 2s ease-in-out infinite",
         }}
-        aria-label="Donation options"
+        aria-label="DONATE NOW - Support Snuggles!"
       >
         <div className="relative">
-          {/* Pulsing ring */}
-          <div className="absolute inset-0 rounded-full bg-green-400/30 animate-ping" />
+          {/* Multiple pulsing rings */}
+          <div className="absolute inset-0 rounded-full bg-green-400/40 animate-ping" />
+          <div className="absolute inset-2 rounded-full bg-blue-500/30 animate-ping" style={{ animationDelay: '0.5s' }} />
+          <div className="absolute inset-4 rounded-full bg-purple-600/20 animate-ping" style={{ animationDelay: '1s' }} />
           
           {/* Main icon */}
-          <div className="relative text-2xl font-black">
+          <div className="relative text-5xl font-black flex items-center justify-center h-full">
             {isExpanded ? '✕' : '💰'}
           </div>
           
-          {/* Notification badge */}
-          <div className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-6 h-6 flex items-center justify-center animate-bounce">
+          {/* Massive notification badge */}
+          <div className="absolute -top-4 -right-4 bg-red-500 text-white text-lg font-black rounded-full w-12 h-12 flex items-center justify-center animate-bounce border-4 border-white shadow-lg">
             !
+          </div>
+
+          {/* Urgent text overlay */}
+          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider animate-pulse whitespace-nowrap">
+            DONATE NOW!
           </div>
         </div>
       </button>
 
       <style jsx>{`
-        @keyframes pulse-glow {
+        @keyframes mega-pulse-glow {
           0%, 100% {
-            box-shadow: 0 8px 32px rgba(34, 197, 94, 0.4), 0 0 0 1px rgba(34, 197, 94, 0.2);
+            box-shadow: 0 20px 60px rgba(34, 197, 94, 0.6), 0 0 0 4px rgba(34, 197, 94, 0.3), 0 0 100px rgba(59, 130, 246, 0.4);
           }
           50% {
-            box-shadow: 0 12px 40px rgba(34, 197, 94, 0.6), 0 0 0 1px rgba(34, 197, 94, 0.4);
+            box-shadow: 0 30px 80px rgba(34, 197, 94, 0.8), 0 0 0 8px rgba(34, 197, 94, 0.5), 0 0 150px rgba(59, 130, 246, 0.6);
+          }
+        }
+        @keyframes mega-bounce {
+          0%, 20%, 50%, 80%, 100% {
+            transform: translateY(0);
+          }
+          40% {
+            transform: translateY(-10px);
+          }
+          60% {
+            transform: translateY(-5px);
           }
         }
       `}</style>
