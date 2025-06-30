@@ -58,99 +58,75 @@ export function FloatingDonationButton() {
 
   return (
     <div className="fixed bottom-8 right-8 z-50">
-      {/* Expanded Menu - MUCH BIGGER */}
+      {/* Expanded Menu */}
       {isExpanded && (
-        <div className="absolute bottom-32 right-0 flex flex-col gap-6 animate-in slide-in-from-bottom-4 duration-500">
-          {/* Stripe Button - MUCH BIGGER */}
+        <div className="absolute bottom-32 right-0 flex flex-col gap-4 animate-in slide-in-from-bottom-4 duration-500">
+          {/* Stripe Button */}
           <button
             onClick={handleStripe}
-            className="group bg-black border-4 border-green-400 text-green-400 hover:bg-green-400/30 px-12 py-8 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-400/60 rounded-xl flex items-center gap-6 min-w-[350px] text-2xl font-black"
+            className="group bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white border-2 border-green-400 px-6 py-4 font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-green-400/50 rounded-xl flex items-center gap-3 min-w-[240px] text-lg"
           >
-            <span className="text-4xl animate-pulse">⚡</span>
+            <span className="text-2xl">⚡</span>
             <span>STRIPE DONATE</span>
-            <div className="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
           </button>
 
-          {/* CashApp Button - MUCH BIGGER */}
+          {/* CashApp Button */}
           <button
             onClick={handleCashApp}
-            className="group bg-black border-4 border-green-500 text-green-500 hover:bg-green-500/30 px-12 py-8 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-500/60 rounded-xl flex items-center gap-6 min-w-[350px] text-2xl font-black"
+            className="group bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white border-2 border-emerald-400 px-6 py-4 font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-emerald-400/50 rounded-xl flex items-center gap-3 min-w-[240px] text-lg"
           >
-            <span className="text-4xl animate-bounce">💸</span>
+            <span className="text-2xl">💸</span>
             <span>CASHAPP</span>
-            <div className="absolute inset-0 bg-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
           </button>
 
-          {/* Buy Me a Coffee Button - MUCH BIGGER */}
+          {/* Buy Me a Coffee Button */}
           <button
             onClick={handleBuyMeACoffee}
-            className="group bg-black border-4 border-orange-400 text-orange-400 hover:bg-orange-400/30 px-12 py-8 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-400/60 rounded-xl flex items-center gap-6 min-w-[350px] text-2xl font-black"
+            className="group bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white border-2 border-orange-400 px-6 py-4 font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-400/50 rounded-xl flex items-center gap-3 min-w-[240px] text-lg"
           >
-            <span className="text-4xl animate-pulse">☕</span>
+            <span className="text-2xl">☕</span>
             <span>BUY COFFEE</span>
-            <div className="absolute inset-0 bg-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
           </button>
         </div>
       )}
 
-      {/* MASSIVE Main Floating Button */}
+      {/* Enhanced Main Floating Button */}
       <button
         onClick={() => setIsExpanded(!isExpanded)}
-        className={`group relative bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 hover:from-green-500 hover:via-blue-600 hover:to-purple-700 text-white rounded-full shadow-2xl transition-all duration-500 hover:scale-125 ${
-          isExpanded ? 'rotate-45' : 'hover:rotate-12 animate-bounce'
+        className={`group relative bg-gradient-to-r from-green-500 via-blue-500 to-purple-600 hover:from-green-400 hover:via-blue-400 hover:to-purple-500 text-white rounded-full shadow-2xl transition-all duration-500 hover:scale-110 ${
+          isExpanded ? 'rotate-45' : 'hover:rotate-12'
         }`}
         style={{
-          width: '140px',
-          height: '140px',
-          boxShadow: "0 25px 80px rgba(34, 197, 94, 0.7), 0 0 0 6px rgba(34, 197, 94, 0.4), 0 0 120px rgba(59, 130, 246, 0.5)",
-          animation: "mega-pulse-glow 1.5s ease-in-out infinite, mega-bounce 2s ease-in-out infinite",
+          width: '100px',
+          height: '100px',
+          boxShadow: "0 15px 50px rgba(34, 197, 94, 0.5), 0 0 0 3px rgba(34, 197, 94, 0.2), 0 0 80px rgba(59, 130, 246, 0.3)",
         }}
         aria-label="DONATE NOW - Support Snuggles!"
       >
         <div className="relative">
-          {/* Multiple pulsing rings */}
-          <div className="absolute inset-0 rounded-full bg-green-400/40 animate-ping" />
-          <div className="absolute inset-2 rounded-full bg-blue-500/30 animate-ping" style={{ animationDelay: '0.5s' }} />
-          <div className="absolute inset-4 rounded-full bg-purple-600/20 animate-ping" style={{ animationDelay: '1s' }} />
+          {/* Pulsing rings */}
+          <div className="absolute inset-0 rounded-full bg-green-400/30 animate-ping" />
+          <div className="absolute inset-2 rounded-full bg-blue-500/20 animate-ping" style={{ animationDelay: '0.5s' }} />
           
           {/* Main icon */}
-          <div className="relative text-6xl font-black flex items-center justify-center h-full">
+          <div className="relative text-4xl font-black flex items-center justify-center h-full">
             {isExpanded ? '✕' : '💰'}
           </div>
           
-          {/* Massive notification badge */}
-          <div className="absolute -top-6 -right-6 bg-red-500 text-white text-xl font-black rounded-full w-16 h-16 flex items-center justify-center animate-bounce border-4 border-white shadow-lg">
+          {/* Notification badge */}
+          <div className="absolute -top-3 -right-3 bg-red-500 text-white text-sm font-black rounded-full w-8 h-8 flex items-center justify-center animate-bounce border-2 border-white shadow-lg">
             !
           </div>
 
           {/* Urgent text overlay */}
-          <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-black uppercase tracking-wider animate-pulse whitespace-nowrap">
-            DONATE NOW!
+          <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-black uppercase tracking-wider animate-pulse whitespace-nowrap">
+            DONATE
           </div>
         </div>
       </button>
-
-      <style jsx>{`
-        @keyframes mega-pulse-glow {
-          0%, 100% {
-            box-shadow: 0 25px 80px rgba(34, 197, 94, 0.7), 0 0 0 6px rgba(34, 197, 94, 0.4), 0 0 120px rgba(59, 130, 246, 0.5);
-          }
-          50% {
-            box-shadow: 0 35px 100px rgba(34, 197, 94, 0.9), 0 0 0 10px rgba(34, 197, 94, 0.6), 0 0 180px rgba(59, 130, 246, 0.7);
-          }
-        }
-        @keyframes mega-bounce {
-          0%, 20%, 50%, 80%, 100% {
-            transform: translateY(0);
-          }
-          40% {
-            transform: translateY(-15px);
-          }
-          60% {
-            transform: translateY(-8px);
-          }
-        }
-      `}</style>
     </div>
   )
 }

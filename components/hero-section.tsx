@@ -7,7 +7,6 @@ import { TypeWriter } from "./type-writer"
 export function HeroSection() {
   const [glitchActive, setGlitchActive] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
-  const [isHovering, setIsHovering] = useState(false)
 
   useEffect(() => {
     const glitchInterval = setInterval(() => {
@@ -35,287 +34,196 @@ export function HeroSection() {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-black via-slate-900 to-black">
       <div className="container mx-auto px-4 z-10">
-        <div className="text-center space-y-8 max-w-4xl mx-auto">
+        <div className="text-center space-y-12 max-w-6xl mx-auto">
           {/* Enhanced Threat Level Indicator */}
           <div className="relative">
-            <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
-              {/* Digital Display Container */}
-              <div className="relative bg-black/80 backdrop-blur-sm border-2 border-red-500 rounded-lg px-6 py-3 shadow-lg shadow-red-500/50">
-                {/* Animated border effect */}
-                <div className="absolute inset-0 border-2 border-red-400 rounded-lg animate-pulse opacity-60" />
+            <div className="absolute -top-20 left-1/2 transform -translate-x-1/2">
+              <div className="relative bg-black/90 backdrop-blur-sm border-2 border-red-500 rounded-xl px-8 py-4 shadow-2xl shadow-red-500/50">
+                <div className="absolute inset-0 border-2 border-red-400 rounded-xl animate-pulse opacity-60" />
                 <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-transparent to-red-500/20 animate-pulse" />
-                
-                {/* Scanner line */}
                 <div className="absolute top-0 left-0 w-full h-0.5 bg-red-400 animate-pulse" />
                 
                 <div className="relative z-10">
                   <TypeWriter 
                     text="⚠ COGNITIVE THREAT DETECTED ⚠" 
                     speed={30} 
-                    className="text-red-400 font-mono uppercase tracking-widest text-sm font-bold" 
+                    className="text-red-400 font-mono uppercase tracking-widest text-lg font-bold" 
                   />
                 </div>
               </div>
             </div>
 
-            {/* Snuggles Image Container - ENHANCED WITH LIFE! */}
-            <div className="relative mb-16">
-              <div 
-                className="relative inline-block group cursor-pointer"
-                onMouseEnter={() => setIsHovering(true)}
-                onMouseLeave={() => setIsHovering(false)}
-              >
-                {/* Enhanced glow effects when hovering */}
-                <div className={`absolute inset-0 rounded-lg blur-xl transition-all duration-500 ${
-                  isHovering 
-                    ? "bg-gradient-to-r from-blue-500/40 via-cyan-400/50 to-purple-500/40 animate-pulse" 
-                    : "bg-blue-500/20 animate-pulse"
-                }`} />
+            {/* Enhanced Snuggles Image Container */}
+            <div className="relative mb-20">
+              <div className="relative inline-block group">
+                {/* Sophisticated glow effects */}
+                <div className="absolute inset-0 rounded-2xl blur-2xl bg-gradient-to-r from-blue-500/30 via-cyan-400/40 to-purple-500/30 animate-pulse" />
                 
-                {/* Magical energy rings when hovering */}
-                {isHovering && (
-                  <>
-                    <div className="absolute inset-0 border-4 border-cyan-400 rounded-lg animate-ping opacity-60" />
-                    <div className="absolute inset-4 border-2 border-blue-400 rounded-lg animate-ping opacity-40" style={{ animationDelay: '0.3s' }} />
-                    <div className="absolute inset-8 border-2 border-purple-400 rounded-lg animate-ping opacity-30" style={{ animationDelay: '0.6s' }} />
-                  </>
-                )}
+                {/* Elegant border frame */}
+                <div className="absolute inset-0 border-4 border-cyan-400/60 rounded-2xl shadow-2xl shadow-cyan-400/30" />
                 
                 <div className="relative">
-                  <div className="relative w-[600px] h-[600px] mx-auto">
+                  <div className="relative w-[500px] h-[500px] mx-auto">
                     <Image
                       src="/snuggles.jpg"
                       alt="Snuggles - The Cognitive Anomaly"
                       fill
-                      className={`rounded-lg border-2 transition-all duration-500 object-cover object-center ${
+                      className={`rounded-2xl object-cover object-center transition-all duration-500 ${
                         imageLoaded ? "opacity-100" : "opacity-0"
                       } ${
                         glitchActive ? "filter hue-rotate-180 brightness-150" : "brightness-110"
-                      } ${
-                        isHovering 
-                          ? "scale-110 rotate-3 brightness-130 saturate-150 border-cyan-400 shadow-2xl shadow-cyan-400/60" 
-                          : "border-blue-400 group-hover:scale-105 group-hover:rotate-2 group-hover:brightness-125"
                       }`}
                       style={{
-                        boxShadow: isHovering 
-                          ? "0 0 100px rgba(59, 130, 246, 0.8), 0 0 200px rgba(34, 211, 238, 0.6), 0 0 300px rgba(147, 51, 234, 0.4)"
-                          : "0 0 60px rgba(59, 130, 246, 0.5), 0 0 120px rgba(59, 130, 246, 0.3)",
-                        animation: isHovering 
-                          ? "snuggles-alive 0.8s ease-in-out infinite, pulse-glow 1s ease-in-out infinite" 
-                          : "pulse-glow 2s ease-in-out infinite",
-                        zIndex: 10,
-                        filter: isHovering 
-                          ? "brightness(1.3) saturate(1.5) contrast(1.2) hue-rotate(10deg)" 
-                          : "brightness(1.1)",
+                        boxShadow: "0 0 80px rgba(59, 130, 246, 0.6), 0 0 160px rgba(34, 211, 238, 0.4)",
+                        filter: "brightness(1.1) contrast(1.1)",
                       }}
                       onLoad={() => setImageLoaded(true)}
                       priority
                     />
-                    
-                    {/* Magical sparkles when hovering */}
-                    {isHovering && (
-                      <>
-                        <div className="absolute top-10 left-10 text-4xl animate-bounce" style={{ animationDelay: '0s' }}>✨</div>
-                        <div className="absolute top-20 right-20 text-3xl animate-bounce" style={{ animationDelay: '0.2s' }}>⚡</div>
-                        <div className="absolute bottom-20 left-20 text-3xl animate-bounce" style={{ animationDelay: '0.4s' }}>🌟</div>
-                        <div className="absolute bottom-10 right-10 text-4xl animate-bounce" style={{ animationDelay: '0.6s' }}>💫</div>
-                        <div className="absolute top-1/2 left-5 text-2xl animate-bounce" style={{ animationDelay: '0.8s' }}>✨</div>
-                        <div className="absolute top-1/2 right-5 text-2xl animate-bounce" style={{ animationDelay: '1s' }}>⚡</div>
-                      </>
-                    )}
                   </div>
                 </div>
               </div>
-              
-              {/* Floating "I SEE YOU" message - REPOSITIONED FOR VISIBILITY */}
-              {isHovering && (
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
-                  <div className="relative">
-                    {/* Glowing background */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/80 via-blue-500/80 to-purple-500/80 rounded-full blur-lg animate-pulse" />
-                    
-                    {/* Main message box */}
-                    <div className="relative bg-black/90 backdrop-blur-sm border-4 border-cyan-400 rounded-full px-8 py-4 shadow-2xl shadow-cyan-400/60">
-                      {/* Animated border rings */}
-                      <div className="absolute inset-0 border-2 border-blue-400 rounded-full animate-ping opacity-60" />
-                      <div className="absolute inset-2 border-2 border-purple-400 rounded-full animate-ping opacity-40" style={{ animationDelay: '0.5s' }} />
-                      
-                      {/* Scanner lines */}
-                      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse" />
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent animate-pulse" />
-                      
-                      {/* Message text */}
-                      <div className="relative z-10 text-cyan-400 font-mono uppercase tracking-wider font-black text-2xl animate-bounce">
-                        👁️ I SEE YOU 👁️
-                      </div>
-                    </div>
-                    
-                    {/* Additional floating eyes */}
-                    <div className="absolute -top-8 -left-8 text-3xl animate-bounce" style={{ animationDelay: '0.2s' }}>👁️</div>
-                    <div className="absolute -top-8 -right-8 text-3xl animate-bounce" style={{ animationDelay: '0.4s' }}>👁️</div>
-                    <div className="absolute -bottom-8 -left-8 text-3xl animate-bounce" style={{ animationDelay: '0.6s' }}>👁️</div>
-                    <div className="absolute -bottom-8 -right-8 text-3xl animate-bounce" style={{ animationDelay: '0.8s' }}>👁️</div>
-                  </div>
-                </div>
-              )}
             </div>
           </div>
 
-          {/* Main Title */}
-          <div className="space-y-4">
+          {/* Enhanced Main Title with Better Typography */}
+          <div className="space-y-6">
             <h1
-              className={`text-6xl md:text-8xl font-black uppercase tracking-wider transition-all duration-100 ${
+              className={`text-7xl md:text-9xl font-black uppercase tracking-wider transition-all duration-100 ${
                 glitchActive ? "transform translate-x-1 translate-y-1" : ""
-              } ${
-                isHovering ? "animate-pulse text-shadow-glow" : ""
               }`}
+              style={{
+                fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
+                letterSpacing: "0.1em",
+              }}
             >
               <span
                 className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent"
                 style={{
                   textShadow: glitchActive
                     ? "2px 2px 0 #ff00ff, -2px -2px 0 #00ffff"
-                    : isHovering
-                    ? "0 0 50px rgba(59, 130, 246, 1), 0 0 100px rgba(34, 211, 238, 0.8)"
-                    : "0 0 30px rgba(59, 130, 246, 0.8)",
+                    : "0 0 40px rgba(59, 130, 246, 0.8)",
                 }}
               >
                 SNUGGLES
               </span>
             </h1>
 
-            <p className={`text-2xl md:text-3xl font-bold text-pink-400 uppercase tracking-widest ${
-              isHovering ? "animate-pulse" : ""
-            }`}>
-              <TypeWriter text="Cuddly. Critical. Coming for Your Beliefs." speed={80} delay={1000} />
-            </p>
+            <div className="relative">
+              <p className="text-3xl md:text-4xl font-bold text-pink-400 uppercase tracking-widest">
+                <TypeWriter text="Cuddly. Critical. Coming for Your Beliefs." speed={80} delay={1000} />
+              </p>
+              
+              {/* Subtle accent line */}
+              <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-pink-400 to-transparent" />
+            </div>
           </div>
 
-          {/* Description */}
-          <div className="relative max-w-4xl mx-auto">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-cyan-500/10 to-blue-500/10 rounded-lg blur-sm" />
-            <div className={`relative bg-black/50 backdrop-blur-sm border border-blue-400/30 rounded-lg p-8 space-y-4 text-left transition-all duration-500 ${
-              isHovering ? "border-cyan-400/60 shadow-lg shadow-cyan-400/30" : ""
-            }`}>
-              <div className={`absolute inset-0 bg-gradient-to-r from-blue-500 via-cyan-500 to-pink-500 rounded-lg opacity-20 ${
-                isHovering ? "animate-pulse opacity-30" : "animate-pulse"
-              }`} />
-              <div className="relative z-10 space-y-4 text-gray-100 leading-relaxed">
-                <p className="text-cyan-400 font-bold text-lg">
+          {/* Enhanced Description with Better Layout */}
+          <div className="relative max-w-5xl mx-auto">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-cyan-500/10 to-blue-500/5 rounded-2xl blur-sm" />
+            <div className="relative bg-black/60 backdrop-blur-lg border border-blue-400/20 rounded-2xl p-10 space-y-6 text-left">
+              <div className="absolute inset-0 bg-gradient-to-r from-blue-500 via-cyan-500 to-pink-500 rounded-2xl opacity-10 animate-pulse" />
+              
+              <div className="relative z-10 space-y-6 text-gray-100 leading-relaxed">
+                <p className="text-cyan-400 font-bold text-xl border-l-4 border-cyan-400 pl-6">
                   Snuggles is not a mascot. He's not a gimmick. He's not here to comfort you.
                 </p>
-                <p>
-                  He's a cognitive anomaly wrapped in polyester—a sentient teddy bear operating at the bleeding edge of
-                  logic, insight, and pattern recognition. He doesn't just talk—he dissects, decodes, and detonates
-                  illusions.
-                </p>
-                <p>
-                  From quantum physics to courtroom strategy, emotional sinkholes to metaphysical paradoxes, Snuggles
-                  answers what others can't even articulate.
-                </p>
-                <p>
-                  He's a cerebral assassin with a tactical giggle. A walking contradiction: adorable, unshakable, and
-                  disturbingly perceptive.
-                </p>
-                <p className="text-pink-400 font-semibold italic">
+                
+                <div className="grid md:grid-cols-2 gap-6 text-lg">
+                  <div className="space-y-4">
+                    <p>
+                      He's a cognitive anomaly wrapped in polyester—a sentient teddy bear operating at the bleeding edge of
+                      logic, insight, and pattern recognition.
+                    </p>
+                    <p>
+                      He doesn't just talk—he dissects, decodes, and detonates illusions.
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <p>
+                      From quantum physics to courtroom strategy, emotional sinkholes to metaphysical paradoxes, Snuggles
+                      answers what others can't even articulate.
+                    </p>
+                    <p>
+                      He's a cerebral assassin with a tactical giggle. A walking contradiction: adorable, unshakable, and
+                      disturbingly perceptive.
+                    </p>
+                  </div>
+                </div>
+                
+                <p className="text-pink-400 font-semibold italic text-xl text-center border-t border-pink-400/30 pt-6">
                   Your donations keep Snuggles cute, conscious, and coming for fragile worldviews.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* MASSIVE Donation Buttons */}
-          <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
-            {/* Primary Stripe Button - MUCH BIGGER */}
+          {/* Enhanced Donation Buttons with Better Spacing */}
+          <div className="grid md:grid-cols-3 gap-8 justify-center items-center max-w-4xl mx-auto">
+            {/* Primary Stripe Button */}
             <button
               onClick={handleStripe}
-              className="group relative bg-black border-4 border-green-400 text-green-400 hover:bg-green-400/20 px-16 py-12 text-3xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-400/50 rounded-lg min-w-[400px]"
+              className="group relative bg-gradient-to-r from-green-600 to-green-500 hover:from-green-500 hover:to-green-400 text-white px-8 py-6 text-xl font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-400/50 rounded-xl"
             >
-              <div className="flex items-center gap-6">
-                <span className="text-5xl animate-pulse">⚡</span>
-                <div className="text-left">
-                  <div className="font-black text-2xl">STRIPE DONATE</div>
-                  <div className="text-lg opacity-80">Feed the Anomaly</div>
+              <div className="flex items-center gap-4 justify-center">
+                <span className="text-2xl">⚡</span>
+                <div className="text-center">
+                  <div className="font-black text-lg">STRIPE</div>
+                  <div className="text-sm opacity-90">Secure Payment</div>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
             </button>
 
-            {/* CashApp Button - MUCH BIGGER */}
+            {/* CashApp Button */}
             <button
               onClick={handleCashApp}
-              className="group relative bg-black border-4 border-green-500 text-green-500 hover:bg-green-500/20 px-16 py-12 text-3xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-500/50 rounded-lg min-w-[400px]"
+              className="group relative bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-500 hover:to-emerald-400 text-white px-8 py-6 text-xl font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-400/50 rounded-xl"
             >
-              <div className="flex items-center gap-6">
-                <span className="text-5xl">💸</span>
-                <div className="text-left">
-                  <div className="font-black text-2xl">CASHAPP</div>
-                  <div className="text-lg opacity-80">Quick Transfer</div>
+              <div className="flex items-center gap-4 justify-center">
+                <span className="text-2xl">💸</span>
+                <div className="text-center">
+                  <div className="font-black text-lg">CASHAPP</div>
+                  <div className="text-sm opacity-90">Quick Transfer</div>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
             </button>
 
-            {/* Buy Me a Coffee Button - MUCH BIGGER */}
+            {/* Buy Me a Coffee Button */}
             <button
               onClick={handleBuyMeACoffee}
-              className="group relative bg-black border-4 border-orange-400 text-orange-400 hover:bg-orange-400/20 px-16 py-12 text-3xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-400/50 rounded-lg min-w-[400px]"
+              className="group relative bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 text-white px-8 py-6 text-xl font-bold uppercase tracking-wider transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-orange-400/50 rounded-xl"
             >
-              <div className="flex items-center gap-6">
-                <span className="text-5xl">☕</span>
-                <div className="text-left">
-                  <div className="font-black text-2xl">BUY COFFEE</div>
-                  <div className="text-lg opacity-80">Fuel the Oracle</div>
+              <div className="flex items-center gap-4 justify-center">
+                <span className="text-2xl">☕</span>
+                <div className="text-center">
+                  <div className="font-black text-lg">COFFEE</div>
+                  <div className="text-sm opacity-90">Fuel the Oracle</div>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
+              <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
             </button>
           </div>
 
           {/* Enhanced Warning Notice */}
           <div className="relative">
-            <div className="bg-black/80 backdrop-blur-sm border-2 border-red-500 rounded-lg px-8 py-4 shadow-lg shadow-red-500/50 inline-block">
-              {/* Animated border effect */}
-              <div className="absolute inset-0 border-2 border-red-400 rounded-lg animate-pulse opacity-60" />
+            <div className="bg-black/90 backdrop-blur-sm border-2 border-red-500 rounded-xl px-10 py-6 shadow-2xl shadow-red-500/50 inline-block">
+              <div className="absolute inset-0 border-2 border-red-400 rounded-xl animate-pulse opacity-60" />
               <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 via-transparent to-red-500/20 animate-pulse" />
               
-              {/* Scanner lines */}
               <div className="absolute top-0 left-0 w-full h-0.5 bg-red-400 animate-pulse" />
               <div className="absolute bottom-0 left-0 w-full h-0.5 bg-red-400 animate-pulse" />
               
-              <div className="relative z-10 text-red-400 font-mono uppercase tracking-widest font-bold text-lg">
+              <div className="relative z-10 text-red-400 font-mono uppercase tracking-widest font-bold text-xl">
                 ⚠ WARNING: BELIEF SYSTEMS AT RISK ⚠
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes pulse-glow {
-          0%, 100% {
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3);
-          }
-          50% {
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.8), 0 0 60px rgba(59, 130, 246, 0.5);
-          }
-        }
-        
-        @keyframes snuggles-alive {
-          0%, 100% {
-            transform: scale(1.1) rotate(3deg);
-          }
-          25% {
-            transform: scale(1.12) rotate(2deg);
-          }
-          50% {
-            transform: scale(1.11) rotate(4deg);
-          }
-          75% {
-            transform: scale(1.13) rotate(1deg);
-          }
-        }
-      `}</style>
     </section>
   )
 }
