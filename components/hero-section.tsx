@@ -224,48 +224,48 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Donation Buttons */}
-          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
-            {/* Primary Stripe Button */}
+          {/* MASSIVE Donation Buttons */}
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-center">
+            {/* Primary Stripe Button - MUCH BIGGER */}
             <button
               onClick={handleStripe}
-              className="group relative bg-black border-4 border-green-400 text-green-400 hover:bg-green-400/20 px-12 py-10 text-2xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-400/50 rounded-lg min-w-[320px]"
+              className="group relative bg-black border-4 border-green-400 text-green-400 hover:bg-green-400/20 px-16 py-12 text-3xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-400/50 rounded-lg min-w-[400px]"
             >
-              <div className="flex items-center gap-4">
-                <span className="text-3xl animate-pulse">⚡</span>
+              <div className="flex items-center gap-6">
+                <span className="text-5xl animate-pulse">⚡</span>
                 <div className="text-left">
-                  <div className="font-black text-xl">STRIPE DONATE</div>
-                  <div className="text-sm opacity-80">Feed the Anomaly</div>
+                  <div className="font-black text-2xl">STRIPE DONATE</div>
+                  <div className="text-lg opacity-80">Feed the Anomaly</div>
                 </div>
               </div>
               <div className="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
             </button>
 
-            {/* CashApp Button */}
+            {/* CashApp Button - MUCH BIGGER */}
             <button
               onClick={handleCashApp}
-              className="group relative bg-black border-4 border-green-500 text-green-500 hover:bg-green-500/20 px-12 py-10 text-2xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-500/50 rounded-lg min-w-[320px]"
+              className="group relative bg-black border-4 border-green-500 text-green-500 hover:bg-green-500/20 px-16 py-12 text-3xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-500/50 rounded-lg min-w-[400px]"
             >
-              <div className="flex items-center gap-4">
-                <span className="text-3xl">💸</span>
+              <div className="flex items-center gap-6">
+                <span className="text-5xl">💸</span>
                 <div className="text-left">
-                  <div className="font-black text-xl">CASHAPP</div>
-                  <div className="text-sm opacity-80">Quick Transfer</div>
+                  <div className="font-black text-2xl">CASHAPP</div>
+                  <div className="text-lg opacity-80">Quick Transfer</div>
                 </div>
               </div>
               <div className="absolute inset-0 bg-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />
             </button>
 
-            {/* Buy Me a Coffee Button */}
+            {/* Buy Me a Coffee Button - MUCH BIGGER */}
             <button
               onClick={handleBuyMeACoffee}
-              className="group relative bg-black border-4 border-orange-400 text-orange-400 hover:bg-orange-400/20 px-12 py-10 text-2xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-400/50 rounded-lg min-w-[320px]"
+              className="group relative bg-black border-4 border-orange-400 text-orange-400 hover:bg-orange-400/20 px-16 py-12 text-3xl font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-400/50 rounded-lg min-w-[400px]"
             >
-              <div className="flex items-center gap-4">
-                <span className="text-3xl">☕</span>
+              <div className="flex items-center gap-6">
+                <span className="text-5xl">☕</span>
                 <div className="text-left">
-                  <div className="font-black text-xl">BUY COFFEE</div>
-                  <div className="text-sm opacity-80">Fuel the Oracle</div>
+                  <div className="font-black text-2xl">BUY COFFEE</div>
+                  <div className="text-lg opacity-80">Fuel the Oracle</div>
                 </div>
               </div>
               <div className="absolute inset-0 bg-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg" />

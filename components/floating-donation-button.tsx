@@ -58,35 +58,35 @@ export function FloatingDonationButton() {
 
   return (
     <div className="fixed bottom-8 right-8 z-50">
-      {/* Expanded Menu */}
+      {/* Expanded Menu - MUCH BIGGER */}
       {isExpanded && (
-        <div className="absolute bottom-32 right-0 flex flex-col gap-4 animate-in slide-in-from-bottom-4 duration-500">
-          {/* Stripe Button */}
+        <div className="absolute bottom-32 right-0 flex flex-col gap-6 animate-in slide-in-from-bottom-4 duration-500">
+          {/* Stripe Button - MUCH BIGGER */}
           <button
             onClick={handleStripe}
-            className="group bg-black border-4 border-green-400 text-green-400 hover:bg-green-400/30 px-8 py-6 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-400/60 rounded-xl flex items-center gap-4 min-w-[280px] text-xl font-black"
+            className="group bg-black border-4 border-green-400 text-green-400 hover:bg-green-400/30 px-12 py-8 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-400/60 rounded-xl flex items-center gap-6 min-w-[350px] text-2xl font-black"
           >
-            <span className="text-3xl animate-pulse">⚡</span>
+            <span className="text-4xl animate-pulse">⚡</span>
             <span>STRIPE DONATE</span>
             <div className="absolute inset-0 bg-green-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
           </button>
 
-          {/* CashApp Button */}
+          {/* CashApp Button - MUCH BIGGER */}
           <button
             onClick={handleCashApp}
-            className="group bg-black border-4 border-green-500 text-green-500 hover:bg-green-500/30 px-8 py-6 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-500/60 rounded-xl flex items-center gap-4 min-w-[280px] text-xl font-black"
+            className="group bg-black border-4 border-green-500 text-green-500 hover:bg-green-500/30 px-12 py-8 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-green-500/60 rounded-xl flex items-center gap-6 min-w-[350px] text-2xl font-black"
           >
-            <span className="text-3xl animate-bounce">💸</span>
+            <span className="text-4xl animate-bounce">💸</span>
             <span>CASHAPP</span>
             <div className="absolute inset-0 bg-green-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
           </button>
 
-          {/* Buy Me a Coffee Button */}
+          {/* Buy Me a Coffee Button - MUCH BIGGER */}
           <button
             onClick={handleBuyMeACoffee}
-            className="group bg-black border-4 border-orange-400 text-orange-400 hover:bg-orange-400/30 px-8 py-6 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-400/60 rounded-xl flex items-center gap-4 min-w-[280px] text-xl font-black"
+            className="group bg-black border-4 border-orange-400 text-orange-400 hover:bg-orange-400/30 px-12 py-8 font-mono uppercase tracking-wider transition-all duration-300 hover:scale-110 hover:shadow-2xl hover:shadow-orange-400/60 rounded-xl flex items-center gap-6 min-w-[350px] text-2xl font-black"
           >
-            <span className="text-3xl animate-pulse">☕</span>
+            <span className="text-4xl animate-pulse">☕</span>
             <span>BUY COFFEE</span>
             <div className="absolute inset-0 bg-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
           </button>
@@ -100,9 +100,9 @@ export function FloatingDonationButton() {
           isExpanded ? 'rotate-45' : 'hover:rotate-12 animate-bounce'
         }`}
         style={{
-          width: '120px',
-          height: '120px',
-          boxShadow: "0 20px 60px rgba(34, 197, 94, 0.6), 0 0 0 4px rgba(34, 197, 94, 0.3), 0 0 100px rgba(59, 130, 246, 0.4)",
+          width: '140px',
+          height: '140px',
+          boxShadow: "0 25px 80px rgba(34, 197, 94, 0.7), 0 0 0 6px rgba(34, 197, 94, 0.4), 0 0 120px rgba(59, 130, 246, 0.5)",
           animation: "mega-pulse-glow 1.5s ease-in-out infinite, mega-bounce 2s ease-in-out infinite",
         }}
         aria-label="DONATE NOW - Support Snuggles!"
@@ -114,17 +114,17 @@ export function FloatingDonationButton() {
           <div className="absolute inset-4 rounded-full bg-purple-600/20 animate-ping" style={{ animationDelay: '1s' }} />
           
           {/* Main icon */}
-          <div className="relative text-5xl font-black flex items-center justify-center h-full">
+          <div className="relative text-6xl font-black flex items-center justify-center h-full">
             {isExpanded ? '✕' : '💰'}
           </div>
           
           {/* Massive notification badge */}
-          <div className="absolute -top-4 -right-4 bg-red-500 text-white text-lg font-black rounded-full w-12 h-12 flex items-center justify-center animate-bounce border-4 border-white shadow-lg">
+          <div className="absolute -top-6 -right-6 bg-red-500 text-white text-xl font-black rounded-full w-16 h-16 flex items-center justify-center animate-bounce border-4 border-white shadow-lg">
             !
           </div>
 
           {/* Urgent text overlay */}
-          <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-3 py-1 rounded-full text-xs font-black uppercase tracking-wider animate-pulse whitespace-nowrap">
+          <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-black uppercase tracking-wider animate-pulse whitespace-nowrap">
             DONATE NOW!
           </div>
         </div>
@@ -133,10 +133,10 @@ export function FloatingDonationButton() {
       <style jsx>{`
         @keyframes mega-pulse-glow {
           0%, 100% {
-            box-shadow: 0 20px 60px rgba(34, 197, 94, 0.6), 0 0 0 4px rgba(34, 197, 94, 0.3), 0 0 100px rgba(59, 130, 246, 0.4);
+            box-shadow: 0 25px 80px rgba(34, 197, 94, 0.7), 0 0 0 6px rgba(34, 197, 94, 0.4), 0 0 120px rgba(59, 130, 246, 0.5);
           }
           50% {
-            box-shadow: 0 30px 80px rgba(34, 197, 94, 0.8), 0 0 0 8px rgba(34, 197, 94, 0.5), 0 0 150px rgba(59, 130, 246, 0.6);
+            box-shadow: 0 35px 100px rgba(34, 197, 94, 0.9), 0 0 0 10px rgba(34, 197, 94, 0.6), 0 0 180px rgba(59, 130, 246, 0.7);
           }
         }
         @keyframes mega-bounce {
@@ -144,10 +144,10 @@ export function FloatingDonationButton() {
             transform: translateY(0);
           }
           40% {
-            transform: translateY(-10px);
+            transform: translateY(-15px);
           }
           60% {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
           }
         }
       `}</style>
